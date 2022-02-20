@@ -1,10 +1,12 @@
-# 문자열
-sentence = '나는 소년입니다'
-print(sentence)
-sentence2 = "파이썬은 쉬워요"
-print(sentence2)
-sentence3 = """
-나는 소년이고,
-파이썬은 쉬워요
-"""
-print(sentence3)
+# 슬라이싱 (문자열에서 필요한 부분만 잘라 사용하는 것)
+jumin = "990101-1234567"
+
+print("성별 : " + jumin[7])
+print("연 : " + jumin[0:2]) # 0번째 부터 2번째 직전까지 (1번째 까지)
+print("월 : " + jumin[2:4])
+print("일 : " + jumin[4:6])
+
+print("생년월일 : " + jumin[:6]) # 처음부터 6번지 직전까지
+print("뒤 7자리 : " + jumin[7:]) # 7번지부터 끝까지
+print("뒤 7자리 (뒤에서부터) : " + jumin[-7:]) 
+# 맨 마지막 자리는 -1번지. 거꾸로 세면 1이 -7번지가 됨. 맨 뒤에서 7번째부터 끝까지.
