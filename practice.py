@@ -1,25 +1,22 @@
-# 문자열 포맷
+# 탈출문자
+# \n : 줄바꿈
+print("백문이 불여일견\n백견이 불여일타")
 
-print("a"+"b")
-print("a","b")
+# \" \' : 문장 내에서 따옴표
+# 저는 "나도코딩" 입니다.
+print('저는 "나도코딩"입니다.') # 가능은 하지만 큰따옴표만 써왔으므로 헷갈릴 수 있음
+print("저는 \"나도코딩\"입니다.") # " 앞에 \를 넣는다
 
-# 방법 1
-print("나는 %d살입니다." % 20) # %뒤에 값을 문장 속 %d에 넣음.
-print("나는 %s을 좋아해요." % "파이썬") # 문자열
-print("Apple 은 %c로 시작해요." % "A") # 문자
-print("나는 %s살입니다." % 20) # %s로 하면 안정적이다
-print("나는 %s색과 %s색을 좋아해요." % ("파란", "빨간")) # %() 속의 순서대로 출력
+# \\ : 문장 내에서 \
+#C:\Users\user\Desktop\PythonStudy>
+print("C:\\Users\\user\\Desktop\\PythonStudy>")
 
-# 방법 2
-print("나는 {}살입니다.".format(20)) # format() 안의 값을 중괄호에 넣음
-print("나는 {}색과 {}색을 좋아해요.".format("파란","빨간")) # 번호 없는 중괄호면 format 안의 순서대로
-print("나는 {0}색과 {1}색을 좋아해요.".format("파란","빨간")) # {} 에 format() 안 번호에 해당하는 문자열 출력
-print("나는 {1}색과 {0}색을 좋아해요.".format("파란","빨간")) # 위와 순서 바뀌어 출력
+# \r : 커서를 맨 앞으로 이동
+print("Red Apple\rPine") # PineApple
+# Red Apple 을 적고 커서를 맨 앞으로 가져와 \r 뒤의 문자만큼 덮어씀
 
-# 방법 3
-print("나는 {age}살이며, {color}색을 좋아해요.".format(age=20,color="빨간")) # format() 안에 있는 변수를 넣을 수 있음
+# \b : 백스페이스 (한 글자 삭제)
+print("Redd\bApple") # RedApple
 
-# 방법 4 (v3.6 이상)
-age = 20
-color = "빨간"
-print(f"나는 {age}색과 {color}색을 좋아해요.") # f를 적고 문자열 쓰면 {}안에 실제 변수값을 넣음
+# \t : 탭
+print("Red\tApple") # Red   Apple
