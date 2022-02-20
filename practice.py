@@ -1,12 +1,20 @@
-# 슬라이싱 (문자열에서 필요한 부분만 잘라 사용하는 것)
-jumin = "990101-1234567"
+# 문자열 처리 함수
 
-print("성별 : " + jumin[7])
-print("연 : " + jumin[0:2]) # 0번째 부터 2번째 직전까지 (1번째 까지)
-print("월 : " + jumin[2:4])
-print("일 : " + jumin[4:6])
+python = "Python is Amazing"
+print(python.lower()) # 문자열 모두 소문자로 출력
+print(python.upper()) # 문자열 모두 대문자로 출력
+print(python[0].isupper()) # 해당 문자가 대문자인지 판별(True / False).
+print(len(python)) # 문자열의 길이
+print(python.replace("Python", "Java")) # 원하는 문자열의 부분을 다른 문자열로 바꿈
 
-print("생년월일 : " + jumin[:6]) # 처음부터 6번지 직전까지
-print("뒤 7자리 : " + jumin[7:]) # 7번지부터 끝까지
-print("뒤 7자리 (뒤에서부터) : " + jumin[-7:]) 
-# 맨 마지막 자리는 -1번지. 거꾸로 세면 1이 -7번지가 됨. 맨 뒤에서 7번째부터 끝까지.
+index = python.index("n")
+print(index) # 5
+index = python.index("n", index + 1) # 앞에서 찾은 위치+1부터 다음 n을 찾음
+print(index) # 15
+
+print(python.find("n")) # 5
+print(python.find("Java")) # Java가 문자열에 없으므로 -1
+# print(python.index("Java"))
+# index는 찾는 문자열이 없으면 오류를 낸다.
+
+print(python.count("n")) # n 이 문자열에서 몇번 나오는지 카운트
