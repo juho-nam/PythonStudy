@@ -1,63 +1,47 @@
-# 리스트 [] : 순서를 가지는 객체의 집합
+# 사전
+cabinet = {3: "유재석", 100:"김태호"} # ket:value
+print(cabinet[3]) # 유재석
+print(cabinet[100]) # 김태호
 
-#지하철 칸별로 10명, 20명, 30명
-# subway1 = 10
-# subway2 = 20
-# subway3 = 30
+print(cabinet.get(3)) # 유재석
+# print(cabinet[5]) # KeyError : 5
 
-subway = [10, 20, 30]
-print(subway) # [10, 20, 30]
+# .get()을 이용하면 None을 반환하고 다음 줄로 넘어간다.
+print(cabinet.get(5)) # None
 
-subway = ["유재석", "조세호", "박명수"]
-print(subway) # ['유재석', '조세호', '박명수'] 
+# key 5 에 값이 있으면 값을 불러옴.
+print(cabinet.get(5, "사용가능")) # 사용가능
 
-# 조세호가 몇 번째 칸에 타고 있는가?
-print(subway.index("조세호")) # 1
+# 사전 자료 안에 값이 있는지를 확인
+print(3 in cabinet) # True
+print(5 in cabinet) # False
 
-# 하하가 다음 정류장에서 다음 칸에 탐
-subway.append("하하")
-print(subway) # ['유재석', '조세호', '박명수', '하하']
-# append는 맨 뒤에 붙임
+# 정수가 아닌 string 형으로 선언도 가능
+cabinet = {"A-3":"유재석","B-100":"김태호"}
+print(cabinet["A-3"]) # 유재석
+print(cabinet["B-100"]) # 김태호
 
-# 정형돈을 유재석 / 조세호 사이에 태운다
-subway.insert(1, "정형돈") 
-print(subway) # ['유재석', '정형돈', '조세호', '박명수', '하하']
-# insert는 인덱스에 문자열을 추가하고 그 위치에 있던 문자열부터 뒤에 모든 문자열은
-# 하나씩 뒤로 밀린다.
+# 새 손님
+print(cabinet) # {'A-3': '유재석', 'B-100': '김태호'}
+# C-20 이라는 key를 만들고 조세호 라는 value를 넣음
+# C-20에 이미 값이 있으면 업데이트 됨
+cabinet["C-20"] = "조세호"
+cabinet["A-3"] = "김종국"
+print(cabinet) # {'A-3': '김종국', 'B-100': '김태호', 'C-20': '조세호'}
 
-# 지하철에 있는 사람을 한 명씩 뒤에서 꺼냄
-print(subway.pop()) # 하하
-print(subway) # ['유재석', '정형돈', '조세호', '박명수']
+# 손님 퇴장
+del cabinet["A-3"]
+print(cabinet) # {'B-100': '김태호', 'C-20': '조세호'}
 
-print(subway.pop()) # 박명수
-print(subway) # ['유재석', '정형돈', '조세호']
+# key 들만 출력
+print(cabinet.keys()) # dict_keys(['B-100', 'C-20'])
 
-print(subway.pop()) # 조세호
-print(subway) # ['유재석', '정형돈']
+# value 들만 출력
+print(cabinet.values()) # dict_values(['김태호', '조세호'])
 
-# 같은 이름의 사람이 몇 명 있는지 확인
-subway.append("유재석")
-print(subway) # ['유재석', '정형돈', '유재석']
-print(subway.count("유재석")) # 2
+# key, value 쌍으로 출력
+print(cabinet.items()) # dict_items([('B-100', '김태호'), ('C-20', '조세호')])
 
-# 정렬도 가능
-num_list = [5,2,4,3,1]
-num_list.sort()
-print(num_list) # [1, 2, 3, 4, 5]
-
-# 순서 뒤집기 가능
-num_list.reverse()
-print(num_list) # [5, 4, 3, 2, 1]
-
-# 모두 지우기
-num_list.clear()
-print(num_list) # []
-
-# 다양한 자료형 함께 사용
-mix_list = ["조세호", 20, True]
-print(mix_list) # ['조세호', 20, True]
-
-# 리스트 확장
-num_list = [5,2,4,3,1]
-num_list.extend(mix_list)
-print(num_list) # [5, 2, 4, 3, 1, '조세호', 20, True]
+# 목용탕 영업 종료
+cabinet.clear()
+print(cabinet) # {}
