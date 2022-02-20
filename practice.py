@@ -1,20 +1,25 @@
-# 문자열 처리 함수
+# 문자열 포맷
 
-python = "Python is Amazing"
-print(python.lower()) # 문자열 모두 소문자로 출력
-print(python.upper()) # 문자열 모두 대문자로 출력
-print(python[0].isupper()) # 해당 문자가 대문자인지 판별(True / False).
-print(len(python)) # 문자열의 길이
-print(python.replace("Python", "Java")) # 원하는 문자열의 부분을 다른 문자열로 바꿈
+print("a"+"b")
+print("a","b")
 
-index = python.index("n")
-print(index) # 5
-index = python.index("n", index + 1) # 앞에서 찾은 위치+1부터 다음 n을 찾음
-print(index) # 15
+# 방법 1
+print("나는 %d살입니다." % 20) # %뒤에 값을 문장 속 %d에 넣음.
+print("나는 %s을 좋아해요." % "파이썬") # 문자열
+print("Apple 은 %c로 시작해요." % "A") # 문자
+print("나는 %s살입니다." % 20) # %s로 하면 안정적이다
+print("나는 %s색과 %s색을 좋아해요." % ("파란", "빨간")) # %() 속의 순서대로 출력
 
-print(python.find("n")) # 5
-print(python.find("Java")) # Java가 문자열에 없으므로 -1
-# print(python.index("Java"))
-# index는 찾는 문자열이 없으면 오류를 낸다.
+# 방법 2
+print("나는 {}살입니다.".format(20)) # format() 안의 값을 중괄호에 넣음
+print("나는 {}색과 {}색을 좋아해요.".format("파란","빨간")) # 번호 없는 중괄호면 format 안의 순서대로
+print("나는 {0}색과 {1}색을 좋아해요.".format("파란","빨간")) # {} 에 format() 안 번호에 해당하는 문자열 출력
+print("나는 {1}색과 {0}색을 좋아해요.".format("파란","빨간")) # 위와 순서 바뀌어 출력
 
-print(python.count("n")) # n 이 문자열에서 몇번 나오는지 카운트
+# 방법 3
+print("나는 {age}살이며, {color}색을 좋아해요.".format(age=20,color="빨간")) # format() 안에 있는 변수를 넣을 수 있음
+
+# 방법 4 (v3.6 이상)
+age = 20
+color = "빨간"
+print(f"나는 {age}색과 {color}색을 좋아해요.") # f를 적고 문자열 쓰면 {}안에 실제 변수값을 넣음
