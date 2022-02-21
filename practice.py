@@ -1,26 +1,17 @@
-# 전달값과 반환값
+# 함수의 기본값
 
-def deposit(balance, money): # 입금
-    print("입금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance+money))
-    return balance+money
+# def profile(name, age, main_lang):
+#     print("이름 : {0}\t나이 : {1}\t주 사용 언어 : {2}"\
+#         .format(name, age, main_lang)) # 줄바꿈 한 때 \ 를 입력하면 한 줄로 인식
 
-def withdraw(balance, money): # 출금
-    if balance >= money: # 잔액이 출금보다 많으면
-        print("출금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance-money))
-        return balance - money
-    else:
-        print("출금이 완료되지 않았습니다. 잔액은 {0} 원입니다.".format(balance))
-        return balance
-def withdraw_night(balance, money): # 저녁 출금
-    commission = 100 # 수수료 100원
-    return commission, balance - money - commission # 튜플 형식 리턴
+# profile("유재석", 20, "파이썬") # 이름 : 유재석   나이 : 20       주 사용 언어 : 파이썬
+# profile("김태호", 25, "자바") # 이름 : 김태호   나이 : 25       주 사용 언어 : 자바
 
-balance = 0 # 잔액
-balance = deposit(balance, 1000) # 입금이 완료되었습니다. 잔액은 1000 원입니다.
-# print(balance) # 1000
-# balance = withdraw(balance, 2000) # 출금이 완료되지 않았습니다. 잔액은 1000 원입니다.
-# balance = withdraw(balance, 500) # 출금이 완료되었습니다. 잔액은 500 원입니다.
+# 같은 학교 같은 학년 같은 반 같은 수업
 
-commission, balance = withdraw_night(balance, 500)
-print("수수료 {0} 원이며, 잔액은 {1} 원입니다.".format(commission, balance))
-# 수수료 100 원이며, 잔액은 400 원입니다.
+def profile(name, age=17, main_lang="파이썬"):
+    print("이름 : {0}\t나이 : {1}\t주 사용 언어 : {2}"\
+        .format(name, age, main_lang))
+
+profile("유재석") # 이름 : 유재석   나이 : 17       주 사용 언어 : 파이썬
+profile("김태호") # 이름 : 김태호   나이 : 17       주 사용 언어 : 파이썬
