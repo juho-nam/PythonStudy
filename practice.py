@@ -1,24 +1,23 @@
-# 가변 인자
+# 지역변수와 전역변수
 
-# def profile(name, age, lang1, lang2, lang3, lang4, lang5):
-#     print("이름 : {0}\t나이 : {1}\t".format(name, age), end=" ")
-#     # end=" " 는 문장 출력이 끝나고 그 문장 뒤에 이어서 출력하겠다는 의미
-#     print(lang1, lang2, lang3, lang4, lang5)
+gun = 10
 
-# profile("유재석", 20, "Python", "Java", "C", "C++", "C#")
-# # 이름 : 유재석   나이 : 20        Python Java C C++ C#
+def checkpoint(soldiers): # 경계근무
+    global gun # 전역 공간에 있는 gun 사용
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
 
-# profile("김태호", 25, "Kotlin", "Swift", "", "", "")
-# # 이름 : 김태호   나이 : 25 
+# print("전체 총 : {0}".format(gun)) # 전체 총 : 10
+# checkpoint(2) # 2명이 경계 근무 나감 # [함수 내] 남은 총 : 8
+# print("남은 총 : {0}".format(gun)) # 남은 총 : 8
 
-def profile(name, age, *language): # *은 내가 원하는 만큼 값을 추가하겠다는 의미
-    print("이름 : {0}\t나이 : {1}\t".format(name, age), end=" ")
-    for lang in language:
-        print(lang, end=" ")
-    print()
+# 가급적 전역변수 사용하지 않도록 한다. 관리가 힘들어짐
 
-profile("유재석", 20, "Python", "Java", "C", "C++", "C#", "JavaScript")
-# 이름 : 유재석   나이 : 20        Python Java C C++ C# JavaScript
+def checkpoint_ret(gun, soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+    return gun
 
-profile("김태호", 25, "Kotlin", "Swift")
-# 이름 : 김태호   나이 : 25        Kotlin Swift
+print("전체 총 : {0}".format(gun)) # 전체 총 : 10
+gun = checkpoint_ret(gun, 2)
+print("남은 총 : {0}".format(gun)) # 남은 총 : 8
