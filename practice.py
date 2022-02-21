@@ -1,28 +1,18 @@
-# 집합 (set)
-# 중복 안됨, 순서 없음
-my_set = {1, 2, 3, 3, 3}
-print(my_set) # {1, 2, 3}
+# 자료구조의 변경
+# 커피숍
+menu = {"커피", "우유", "주스"}
+print(menu) # {'우유', '주스', '커피'}
+print(menu, type(menu)) # {'주스', '커피', '우유'} <class 'set'>
 
-java = {"유재석", "김태호", "양세형"}
-python = set(["유재석", "박명수"]) # List로 먼저 만들고 set으로 감싸줌
+menu = list(menu)
+print(menu, type(menu)) # ['우유', '커피', '주스'] <class 'list'>
+# list로 클래스가 바뀜
 
-# 교집합 (java와 python을 모두 할 수 있는 개발자)
-print(java & python) # {'유재석'}
-print(java.intersection(python)) # {'유재석'}
+menu = tuple(menu)
+print(menu, type(menu)) # ('주스', '커피', '우유') <class 'tuple'>
+# tuple로 클래스가 바뀜
 
-# 합집합 (java 도 할 수 있거나 python 할 수 있는 개발자)
-print(java | python) # {'유재석', '박명수', '김태호', '양세형'}
-print(java.union(python)) # {'유재석', '박명수', '김태호', '양세형'}
-# 순서는 보장되지 않음
+# 자료구조에 따라서 괄호 모양이 바뀜을 확인하자
 
-# 차집합 (java 할 수 있지만 python은 할 줄 모르는 개발자)
-print(java - python) # {'김태호', '양세형'}
-print(java.difference(python)) # {'김태호', '양세형'}
-
-# python 할 줄 아는 사람이 늘어남
-python.add("김태호")
-print(python) # {'김태호', '박명수', '유재석'}
-
-# java 를 잊어버림
-java.remove("김태호")
-print(java) # {'양세형', '유재석'}
+menu = set(menu)
+print(menu, type(menu)) # {'커피', '주스', '우유'} <class 'set'>
