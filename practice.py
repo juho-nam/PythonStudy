@@ -1,17 +1,8 @@
-# 함수의 기본값
+# 키워드값
 
-# def profile(name, age, main_lang):
-#     print("이름 : {0}\t나이 : {1}\t주 사용 언어 : {2}"\
-#         .format(name, age, main_lang)) # 줄바꿈 한 때 \ 를 입력하면 한 줄로 인식
+def profile(name, age, main_lang):
+    print(name, age, main_lang)
 
-# profile("유재석", 20, "파이썬") # 이름 : 유재석   나이 : 20       주 사용 언어 : 파이썬
-# profile("김태호", 25, "자바") # 이름 : 김태호   나이 : 25       주 사용 언어 : 자바
-
-# 같은 학교 같은 학년 같은 반 같은 수업
-
-def profile(name, age=17, main_lang="파이썬"):
-    print("이름 : {0}\t나이 : {1}\t주 사용 언어 : {2}"\
-        .format(name, age, main_lang))
-
-profile("유재석") # 이름 : 유재석   나이 : 17       주 사용 언어 : 파이썬
-profile("김태호") # 이름 : 김태호   나이 : 17       주 사용 언어 : 파이썬
+profile(name="유재석", main_lang="파이썬",age=20) # 유재석 20 파이썬
+profile(main_lang="자바",age=25,name="김태호") # 김태호 25 자바
+# 키워드를 이용하면 호출시 순서가 뒤바뀌어도 함수 선언대로 출력됨
