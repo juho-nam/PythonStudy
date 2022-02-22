@@ -1,28 +1,54 @@
-# 다양한 출력 포맷
+# 파일입출력
 
-# 빈 자리는 빈공간으로 두고, 오른쪽 정렬을 하되, 총 10자리 공간을 확보
-print("{0: >10}".format(500)) #        500
+# score_file = open("score.txt", "w", encoding="utf8") # "w"는 쓰기. 덮이쓰기
+# print("수학 : 0", file=score_file)
+# print("영어 : 50", file=score_file)
+# score_file.close()
 
-# 양수일 땐 +로 표시, 음수일 땐 -로 표시
-print("{0: >+10}".format(500)) #       +500
-print("{0: >+10}".format(-500)) #       -500
+# score_file = open("score.txt", "a", encoding="utf8") # "a"는 append. 뒤에 이어 쓰기
+# score_file.write("과학 : 80")
+# score_file.write("\n코딩 : 100")
+# score_file.close()
 
-# 왼쪽 정렬하고, 빈칸으로 _로 채움
-print("{0:_<+10}".format(500)) # +500______
+# score_file = open("score.txt", "r", encoding="utf8")
+# print(score_file.read()) # .read는 파일의 내용을 모두 읽어옴
+# score_file.close()
+# 수학 : 0
+# 영어 : 50
+# 과학 : 80
+# 코딩 : 100
 
-# 3자리 마다 콤마를 찍어주기
-print("{0:,}".format(1000000000000)) # 1,000,000,000,000
+# score_file = open("score.txt", "r", encoding="utf8")
+# print(score_file.readline(), end="") # 줄별로 읽기, 한 줄 읽고 커서는 다음 줄로 이동
+# print(score_file.readline(), end="")
+# print(score_file.readline(), end="")
+# print(score_file.readline(), end="")
+# score_file.close()
+# 수학 : 0
+# 영어 : 50
+# 과학 : 80
+# 코딩 : 100
 
-# 3자리 마다 콤마를 찍어주기, +- 부호도 붙이기
-print("{0:+,}".format(1000000000000)) # +1,000,000,000,000
-print("{0:+,}".format(-1000000000000)) # -1,000,000,000,000
+# 몇 줄인지 모를 때 하는 방법
+# score_file = open("score.txt", "r", encoding="utf8")
+# while True:
+#     line = score_file.readline()
+#     if not line:
+#         break
+#     print(line,end="")
+# score_file.close()
+# 수학 : 0
+# 영어 : 50
+# 과학 : 80
+# 코딩 : 100
 
-# 3자리 마다 콤마를 찍어주기, 부호도 붙이고, 자릿수 확보하기
-# 돈이 많으면 행복하니까 빈 자리는 ^로 채워주기
-print("{0:^<+30,}".format(1000000000000)) # +1,000,000,000,000^^^^^^^^^^^^
-
-# 소수점 출력
-print("{0:f}".format(5/3)) # 1.666667
-
-# 소수점 특정 자리수 까지만 표시 (소수점 3째 자리에서 반올림)
-print("{0:.2f}".format(5/3)) # 1.67
+# 리스트에 값을 넣어 처리
+score_file = open("score.txt", "r", encoding="utf8")
+lines = score_file.readlines() # 모든 라인을 list 형태로 저장
+for line in lines:
+    print(line, end="")
+score_file.close()
+# 수학 : 0
+# 영어 : 50
+# 과학 : 80
+# 코딩 : 100
