@@ -1,4 +1,9 @@
-# pass
+# super
+# Unit.__init__(self, ...)
+# super().__init__(...) 는 self 정보 없이 사용
+# 다중 상속 시 문제 발생
+# 가장 앞에 상속 클래스에 대해서만 초기화
+# 모든 부모 클래스에 대한 초기화 필요할 땐 명시적으로 __init__ 해야함
 
 # 일반 유닛
 class Unit:
@@ -51,16 +56,6 @@ class FlyableAttackUnit(AttackUnit, Flyable):
 # 건물
 class BuildingUnit(Unit):
     def __init__(self, name, hp, location):
-        pass # 아무것도 안하고 일단 넘어감
-
-# 서플라이 디폿 : 건물, 1개 건물 = 8 유닛
-supply_depot = BuildingUnit("서플라이 디폿", 500, "7시") # 오류 없이 프로그램 종료
-
-def game_start():
-    print("[알림] 새로운 게임을 시작합니다.")
-
-def game_over():
-    pass
-
-game_start() # [알림] 새로운 게임을 시작합니다.
-game_over() # 
+        # Unit.__init__(self, name, hp, 0)
+        super().__init__(name, hp, 0) # super()를 통해서 생성할 땐 self 정보를 안보내야 함
+        self.location = location
