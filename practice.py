@@ -1,5 +1,4 @@
-# 메소드 오버라이딩
-# 메소드 선언부는 기존 메소드와 완전이 같아야 함
+# pass
 
 # 일반 유닛
 class Unit:
@@ -49,16 +48,19 @@ class FlyableAttackUnit(AttackUnit, Flyable):
         print("[공중 유닛 이동]")
         self.fly(self.name, location)
 
-# 벌쳐 : 지상 유닛, 기동성이 좋음
-vulture = AttackUnit("벌쳐", 80, 10 ,20)
+# 건물
+class BuildingUnit(Unit):
+    def __init__(self, name, hp, location):
+        pass # 아무것도 안하고 일단 넘어감
 
-# 배틀크루저 : 공중 유닛, 체력도 굉장히 좋음, 공격력도 좋음
-battlecruiser = FlyableAttackUnit("배틀크루저", 500, 25, 3)
+# 서플라이 디폿 : 건물, 1개 건물 = 8 유닛
+supply_depot = BuildingUnit("서플라이 디폿", 500, "7시") # 오류 없이 프로그램 종료
 
-vulture.move("11시")
-# [지상 유닛 이동]
-# 벌쳐 : 11시 방향으로 이동합니다. [속도 10]
+def game_start():
+    print("[알림] 새로운 게임을 시작합니다.")
 
-battlecruiser.move("9시")
-# [공중 유닛 이동]
-# 배틀크루저 : 9시 방향으로 날아갑니다. [속도 3]
+def game_over():
+    pass
+
+game_start() # [알림] 새로운 게임을 시작합니다.
+game_over() # 
