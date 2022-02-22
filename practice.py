@@ -1,16 +1,22 @@
-# with
+# 클래스
 
-import pickle
+class unit:
+    def __init__(self, name, hp, damage):
+        self.name = name # 유닛 이름
+        self.hp = hp # 유닛 체력
+        self.damage = damage # 유닛 공격력
+        print("{0} 유닛이 생성 되었습니다.".format(self.name))
+        print("체력 {0}, 공격력 {1}\n".format(self.hp,self.damage))
 
-# with open("profile.pickle", "rb") as profile_file:
-#     print(pickle.load(profile_file))
+marine1 = unit("마린", 40, 5)
+marine2 = unit("마린", 40, 5)
+tank = unit("탱크", 150, 35)
 
-# profile.pickle 을 열어서 profile_file 로 저장을 해두고
-# profile_file 내용을 pickle.load 로 불러와서 출력
-# close() 가 필요없이 with 문에서 자동으로 close 해줌
+# 마린 유닛이 생성 되었습니다.
+# 체력 40, 공격력 5
 
-with open("study.txt","w",encoding="utf8") as study_file:
-    study_file.write("파이썬을 열심히 공부하고 있어요")
+# 마린 유닛이 생성 되었습니다.
+# 체력 40, 공격력 5
 
-with open("study.txt","r",encoding="utf8") as study_file:
-    print(study_file.read()) # 파이썬을 열심히 공부하고 있어요
+# 탱크 유닛이 생성 되었습니다.
+# 체력 150, 공격력 35
